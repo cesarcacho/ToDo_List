@@ -7,8 +7,7 @@ function insertListItem() {
 };
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  console.log("DOM fully loaded and parsed");
+window.addEventListener('DOMContentLoaded', function() {
   const form = document.querySelector('#todo_form');
   form.addEventListener('submit', function() {
     insertListItem();
