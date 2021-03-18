@@ -35,6 +35,10 @@ h1 {
   margin-top: 10px;
 }
 
+.list_container ul li.list_element-completed {
+  text-decoration: line-through;
+}
+
 .list_container ul .list_item-container {
   display: flex;
   align-items: center;
@@ -42,6 +46,11 @@ h1 {
   cursor: pointer;
 }
 
+
+
 .form_container {
   margin-top: 40px;
 }
+
+
+.list__container ul li.list_item--completed
