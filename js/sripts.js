@@ -1,13 +1,19 @@
 function insertListItem(task) {
-  const newItem = document.createElement('div');
-  newItem.classList.add('list_item-container');
-  newItem.innerHTML = `<li class="list_element list_element-completed">${task}</li><span>X</span>`;
+  const newItem = document.createElement('li');
+  const newItemDeleteButton = document.createElement('span');
+
+  newItemDeleteButton.textContent = 'X';
+  newItem.classList.add('list_element');
+  newItem.innerHTML = `${task}`;
+  
  
   console.log(newItem);
   const list = document.querySelector('ul');
   list.appendChild(newItem);
   markItemAsCompletedListener(newItem);
-  deleteItemListener(element);
+
+  newItem.appendChild(newItemDeleteButton);
+  deleteItemListener(newItemDeleteButton);
 }
 
 function markItemAsCompletedListener(element){
@@ -18,7 +24,7 @@ function markItemAsCompletedListener(element){
 };
 
 function deleteItemListener(element) {
-  element.addEventListener('click', function (event) {
+  element.addEventListener('click', function(event) {
     const item = event.target;
     item.parentElement.remove();
   });
@@ -28,19 +34,20 @@ window.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('#todo_form');
   const textInput = document.querySelector("input[type='text']");
   const listItem = document.querySelectorAll('.list_element');
-  const deleteElements = document.querySelectorAll('.list_item-container span');
+  const deleteElements = document.querySelectorAll('.list_element');
 
   listItem.forEach(function(element){
     markItemAsCompletedListener(element);
   });
 
   deleteElements.forEach(function (element) {
-    deleteItemListener(element);
+    const deleteItemButton = element.querySelector('span');
+    deleteItemListener(deleteItemButton);
   });
 
-  form.addEventListener('submit', function () {
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
     insertListItem(textInput.value);
     textInput.value = '';
-    event.preventDefault();
   });
 });
