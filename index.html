@@ -10,25 +10,29 @@
   <link rel="stylesheet" href="styles/resets.css">
   <link rel="stylesheet" href="styles/style.css">
   <script src="js/sripts.js"></script>
-
 </head>
 
 <body>
   <div class="container">
-    <h1>ToDo List</h1>
     <div class="form_container">
       <form id="todo_form">
-        <input type="text">
-        <input type="submit">
+        <input type="text" placeholder="Nueva tarea...">
+        <input value="+" type="submit">
       </form>
     </div>
     <div class="list_container">
       <ul>
         <!-- <div class="list_item-container"> -->
-        <li class="list_element list_element-completed">1er elemento<span>X</span></li>
+        <li class="list_element">
+          <input type="checkbox"> elemento 1
+          <span>❌</span>
+        </li>
         <!-- </div> -->
         <!-- <div class="list_item-container"> -->
-        <li class="list_element">2o elemento<span>X</span></li>
+        <li class="list_element">
+          <input type="checkbox">2o elemento
+          <span>❌</span>
+        </li>
         <!-- </div> -->
       </ul>
     </div>
